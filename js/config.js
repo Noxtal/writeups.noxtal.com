@@ -13,7 +13,7 @@ var config = {
   github: {
     username: 'Noxtal',
     repo: 'writeups.noxtal.com',
-    branch: 'gh-pages',
+    branch: 'master',
     host: 'https://api.github.com',
     // Use prefix option if your site is located in a subdirectory.
     // prefix: 'subdirectory',
