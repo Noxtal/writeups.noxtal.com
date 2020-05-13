@@ -1,51 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMS.js</title>
-    <meta name="description" content="The JavaScript Site Generator">
-    <meta name="author" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/poole.min.css">
-    <link rel="stylesheet" href="./css/poole.overrides.min.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noxtal' Write-ups</title>
+    <meta name="description" content="The JavaScript Site Generator" />
+    <meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Primer/14.2.0/primer.css"
+      integrity="sha256-E87Tkz42LQq12ydBe3fnxgoMTZnZsnX/ZPbK32f6+0g="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/animations.css" />
+    <link rel="stylesheet" href="./css/poole.min.css" />
+    <link rel="stylesheet" href="./css/poole.overrides.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <noscript>Please enable JavaScript to view this site.</noscript>
   </head>
   <body>
+    <!-- Header -->
+    <div class="Header">
+      <div class="Header-item">
+        <a
+        href="https://github.com/Noxtal"
+        class="Header-link f4 d-flex flex-items-center"
+        >
+        <!-- <%= octicon "mark-github", class: "mr-2", height: 32 %> -->
+        <img
+          src="https://avatars0.githubusercontent.com/u/44851191?v=4"
+          class="octicon octicon-mark-github mr-2"
+          alt="@ZedeV2"
+          height="32"
+          width="32"
+        />
+          <span>Noxtal 💻</span>
+        </a>
+      </div>
+      <div class="Header-item">
+        <input
+          type="search"
+          placeholder="Search for an article 🔍"
+          class="form-control input-dark"
+        />
+      </div>
+      <div class="Header-item">
+        <a href="/" class="Header-link">Home</a>
+      </div>
+      <div class="Header-item">
+        <a href="#/posts" class="Header-link">Recent posts</a>
+      </div>
+      <div class="Header-item">
+        <a href="#/posts?tag=sampletag" class="Header-link">CTFLearn</a>
+      </div>
+    </div>
+
     <!-- Main Container -->
     <div class="container content">
-      <!-- Header -->
-      <header class="masthead">
-        <h3 class="masthead-title">
-        <a href="#" class="sitename" title="Home">
-          CMS.js
-        </a>
-        <small class="tagline">
-          The Javascript Site Generator
-        </small>
-        </h3>
-        <!-- Navigation -->
-        <nav class="nav">
-          <ul>
-            <li><a href="#/posts">Posts</a></li>
-            <li><a href="//github.com/chrisdiana/cms.js" target="_blank">Github</a></li>
-            <li><a href="#/pages/about">About</a></li>
-            <li><a href="#/pages/links">Links</a></li>
-          </ul>
-        </nav>
-      </header>
-
       <!-- CMS -->
       <div id="cms"></div>
 
       <!-- Footer -->
       <footer class="footer">
-        <small class="footer-text">
-        </small>
+        <small class="footer-text"> </small>
       </footer>
     </div>
 
