@@ -19,6 +19,8 @@ var config = {
     // prefix: 'subdirectory',
   },
 
+  markdownEngine: marked,
+
   // The name of the layouts directory.
   layoutDirectory: 'layouts',
 
@@ -45,6 +47,21 @@ var config = {
     },
   ],
 };
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false, 
+  pedantic:false,
+  smartLists: true,
+  smartypants: false,
+  highlight: function (code) {
+    let hl = hljs.highlightAuto(code);
+    console.log(hl)
+    return hl.value
+  }
+})
 
 // Initialize CMS.js
 var blog = new CMS(config);

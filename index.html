@@ -3,21 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://avatars0.githubusercontent.com/u/44851191?v=4"
+    />
     <title>Noxtal' Write-ups</title>
     <meta name="description" content="The JavaScript Site Generator" />
     <meta name="author" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/Primer/14.2.0/primer.css"
       integrity="sha256-E87Tkz42LQq12ydBe3fnxgoMTZnZsnX/ZPbK32f6+0g="
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="./css/animations.css" />
     <link rel="stylesheet" href="./css/poole.min.css" />
     <link rel="stylesheet" href="./css/poole.overrides.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
+
+    <link rel="stylesheet" href="./css/atom-one-dark.css" />
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -27,36 +35,33 @@
     <!-- Header -->
     <div class="Header">
       <div class="Header-item">
-        <a
-        href="https://github.com/Noxtal"
-        class="Header-link f4 d-flex flex-items-center"
-        >
-        <!-- <%= octicon "mark-github", class: "mr-2", height: 32 %> -->
-        <img
-          src="https://avatars0.githubusercontent.com/u/44851191?v=4"
-          class="octicon octicon-mark-github mr-2"
-          alt="@ZedeV2"
-          height="32"
-          width="32"
-        />
-          <span>Noxtal 💻</span>
+        <a href="#/posts" class="Header-link f4 d-flex flex-items-center">
+          <!-- <%= octicon "mark-github", class: "mr-2", height: 32 %> -->
+          <img
+            src="https://avatars0.githubusercontent.com/u/44851191?v=4"
+            class="octicon octicon-mark-github mr-2"
+            alt="@ZedeV2"
+            height="32"
+            width="32"
+          />
+          <span>Noxtal' Write-ups</span>
         </a>
       </div>
-      <div class="Header-item">
+      <!-- <form class="Header-item">
         <input
           type="search"
           placeholder="Search for an article 🔍"
           class="form-control input-dark"
         />
+      </form> -->
+      <div class="Header-item">
+        <a href="https://noxtal.com" class="Header-link">Home</a>
       </div>
       <div class="Header-item">
-        <a href="/" class="Header-link">Home</a>
+        <a href="#/posts" class="Header-link">Posts</a>
       </div>
       <div class="Header-item">
-        <a href="#/posts" class="Header-link">Recent posts</a>
-      </div>
-      <div class="Header-item">
-        <a href="#/posts?tag=sampletag" class="Header-link">CTFLearn</a>
+        <a href="#/posts?tag=CTFlearn" class="Header-link">CTFLearn</a>
       </div>
     </div>
 
@@ -75,6 +80,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.12/es5-shim.min.js"></script>
     <!-- CMS.js -->
     <script src="./js/cms.js"></script>
+    <!-- Mardown Engine + Syntax Highlighting -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- Config -->
     <script src="./js/config.js"></script>
   </body>
