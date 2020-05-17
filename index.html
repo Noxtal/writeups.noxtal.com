@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="./css/poole.overrides.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
 
-    <link rel="stylesheet" href="./css/atom-one-dark.css" />
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -81,10 +80,21 @@
     <!-- CMS.js -->
     <script src="./js/cms.js"></script>
     <!-- Mardown Engine + Syntax Highlighting -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-    <script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js"
+      integrity="sha256-3teItwIfMuVB74Alnxw/y5HAZ2irOsCULFff3EgbtEs="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-python.min.js"
+      integrity="sha256-z1w1HLignub5kA0f24TCzv765MT4114LEgW/oIYuLag="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/highlight-theme.css" />
+    <!-- <script>
       hljs.initHighlightingOnLoad();
-    </script>
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- Config -->
     <script src="./js/config.js"></script>
