@@ -2,6 +2,39 @@
 title: About
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare massa eget egestas purus viverra. Phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Potenti nullam ac tortor vitae. Vitae sapien pellentesque habitant morbi tristique. Aliquam sem et tortor consequat id porta nibh venenatis cras. Integer vitae justo eget magna fermentum iaculis eu. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Mattis enim ut tellus elementum sagittis. Adipiscing enim eu turpis egestas pretium aenean pharetra magna. Ullamcorper malesuada proin libero nunc consequat interdum varius. Pellentesque id nibh tortor id aliquet lectus proin nibh nisl. Est ullamcorper eget nulla facilisi etiam dignissim diam quis enim. Eget nunc scelerisque viverra mauris in aliquam sem fringilla. Vitae tempus quam pellentesque nec nam aliquam sem et tortor.
+I'm <a href="https://github.com/Noxtal">Noxtal</a>, young developer and CTF player.
 
-Tellus molestie nunc non blandit massa. Porttitor leo a diam sollicitudin. Malesuada pellentesque elit eget gravida cum sociis natoque. Ultricies leo integer malesuada nunc vel risus commodo viverra. Amet porttitor eget dolor morbi non arcu. Bibendum arcu vitae elementum curabitur vitae nunc. Ut sem nulla pharetra diam sit amet. Ac feugiat sed lectus vestibulum mattis ullamcorper. Eu volutpat odio facilisis mauris sit amet massa vitae. Semper eget duis at tellus at urna condimentum mattis pellentesque. Tincidunt dui ut ornare lectus sit amet. Sed augue lacus viverra vitae congue eu. Nisi lacus sed viverra tellus. Sed id semper risus in. Urna nunc id cursus metus aliquam.
+Here is more information about me. Feel free to contact me, I would be really glad to hear feedback, comments, or even just talk with you about coding, hacking, etc...
+
+I also suggest you visit the entirety of my [website](https://www.noxtal.com/).
+
+<div class="Box">
+  <ul>
+    <li class="Box-row">
+      <i class="fab fa-github-square fa-2x"></i> Github
+      <a class="v-middle" href="https://github.com/Noxtal">Noxtal</a>
+    </li>
+    <li class="Box-row">
+      <i class="fas fa-envelope fa-2x"></i> Email contact.noxtal@gmail.com
+    </li>
+    <li class="Box-row">
+      <i class="fab fa-twitter-square fa-2x"></i> Twitter
+      <a class="v-middle" href="https://twitter.com/noxtal_">@noxtal_</a>
+    </li>
+    <li class="Box-row">
+      <i class="fab fa-discord fa-2x"></i> Discord Noxtal#3230
+    </li>
+    <li class="Box-row">
+      <i class="fas fa-flag fa-2x"></i> CTFLearn
+      <a class="v-middle" href="https://ctflearn.com/user/Noxtal"
+        >Noxtal</a
+      >
+    </li>
+    <li class="Box-row">
+      <i class="fab fa-cc-paypal fa-2x"></i> PayPal
+      <a class="v-middle" href="https://paypal.me/noxtal"
+        >paypal.me/noxtal</a
+      >
+    </li>
+  </ul>
+</div>
