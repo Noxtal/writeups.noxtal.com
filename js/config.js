@@ -51,8 +51,8 @@ const renderer = new marked.Renderer();
 
 // Change the code method to output the same as Prism.js would.
 renderer.code = function(code, lang, escaped) {
-  code = this.options.highlight(code, lang);
   lang = lang || "markup"
+  code = this.options.highlight(code, lang);
 
   // e.g. "language-js"
   var langClass = this.options.langPrefix + lang;
