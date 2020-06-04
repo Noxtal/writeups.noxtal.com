@@ -8,6 +8,11 @@ Here is more information about me. Feel free to contact me, I would be really gl
 
 I also suggest you visit the entirety of my [website](https://www.noxtal.com/).
 
+TryHackMe profile:
+
+<img src="https://tryhackme-badges.s3.amazonaws.com/Noxtal.png" alt="TryHackMe">
+
+## Other informations
 <div class="Box">
   <ul>
     <li class="Box-row">
