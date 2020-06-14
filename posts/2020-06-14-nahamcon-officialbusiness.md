@@ -21,13 +21,13 @@ Web, 125 points
 > http://jh2i.com:50006
 
 # Solution
-Let's open the linked website. It looks like a classic authentification page. 
+Let's open the linked website.
 ![Auth page](https://i.imgur.com/5SfKeg3.png)
 
-Let's try to login using random credentials.
+Let's try to login using random credentials. It looks like a classic authentification page. 
 ![Forbidden](https://i.imgur.com/sqb0lxb.png)
 
-Unfortunately, as you can see, only the admin account seems to be accepted. Any other account will return a 403 forbidden error. Let's do some normal recon to see what we are against. The robots.txt file is set, a common thing in web CTFs. In it, we can find what seems to be the source code of the web app's server. It is Python, so it is very likely to be a Flask application. Let's take a look at it:
+Unfortunately, as you can see, only the admin account seems to be accepted. Any other account will return a 403 forbidden error. Let's do some normal recon to see what we are against. The robots.txt file is set, a common thing in web CTFs. In it, we can find what seems to be the source code of the web app's server. It is Python, so it is a Flask application. Let's take a closer look at it:
 ```python
 #!/usr/bin/env python3
 
@@ -156,8 +156,9 @@ def do_login(user, password, admin):
 
     return response
 ```
-This function takes three arguments: user, which is the username, its password and a boolean value that tells the program if this user is an admin or not. First, this function creates the *cookie* variable, a dictionary containing all three parameters. Then to this is appended the digest key with a hash value determined by the app secret key and the cookie variable. This is probably to ensure that the cookie is valid or not. It could make the task a lot more difficult...
-Then, that cookie variable is turned to a JSON string and is turned to hexadecimal, creating the *"auth"* cookie which is passed in the request.
+This function takes three arguments: user, which is the username, the user's password and a boolean value that tells the program if this user is an admin or not. First, this function creates the *cookie* variable, a dictionary containing all three parameters. Then to this is appended the digest key with a hash value determined by the app secret key and the cookie variable. This is probably to ensure that the cookie is valid or not. It could make the task a lot more difficult, because we don't know the secret key...
+
+Then, that cookie variable is turned to a JSON string and is turned to hexadecimal, creating the *auth* cookie which is passed in the request.
 
 Now, we need to find where the cookie is detected as valid or not, to trick the server. In the *index* function, we can find that bit of code:
 ```python
@@ -190,9 +191,9 @@ def load_cookie():
 
     return True, cookie
 ``` 
-The answer can be found in the *load_cookie* function. First, this function checks if the *auth* cookie is set. If it's not set, the function returns that the request was ok but the cookie is empty, bringing us to the connection page. If it is set, the code continues in a try/except. The try statements seem to check if the digest value is valid using the app.secret key. To do so, the server first unloads the cookie from the auth cookie. Then, it tries to take out the digest value and compares it with the same hashing process as to where it came from, to see if the cookie has been modified. How could we bypass this security?
+The answer can be found in the *load_cookie* function. First, this function checks if the *auth* cookie is set. If it's not set, the function returns that the request was ok but the cookie is empty, bringing us to the connection page. If it is set, the code continues in a try/except. The try statements seem to check if the digest value is valid using the *app.secret_key*. To do so, the server first unloads the cookie from the auth cookie. Then, it tries to take out the digest value and compares it with the same hashing process as to where it came from, to see if the cookie has been modified. How could we bypass this security?
 
-In reality, we only need the first line from the try statement (to get a cookie that is not empty). If we could create an exception after it, the program would exit the try and go into that very insecure except statement. It is insecure because, if an error is caused in the try statement, the program will exit the try/except and return that the cookie is valid. That's what we need to exploit. The easiest way to do that is to don't set the digest value in our auth cookie, thus when the server will try and load it, it will create an exception and validate our cookie, giving us the admin access.
+In reality, we only need the first line from the try statement (to get a cookie that is not empty). If we could create an exception after it, the program would exit the try and go into that insecure except statement. It is insecure because, if an error is caused in the try statement, the program will exit the try/except and return that the cookie is valid. That's what we need to exploit. The easiest way to do that is to don't set the digest key-value pair in our auth cookie, thus when the server will try and load it, it will create an exception and validate our cookie, giving us the admin access.
 
 ## Python Solution
 I decided to code the final program using the Python [requests](https://realpython.com/python-requests/) module. The final code looks like that:
