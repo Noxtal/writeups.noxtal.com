@@ -112,9 +112,9 @@ Running this command should give you an output looking like that.
 
 ![Netstat](https://i.imgur.com/lzMVAoO.png)
 
-Where *\<PROCESS ID\>* is the PID we are looking for. Now, we need to find what is running on this PID. Let's use the *ps* command which stands for *Process Status*. To search for a PID we need to specify the *-p* flag followed by the PID. The command looks like this: `ps -p <PROCESS ID>`. Below is what the returned value should be looking like.
+Where *\<PROCESS ID\>* is the PID we are looking for. Now, we need to find what is running on this PID. Let's use the *ps* command which stands for *Process Status*. To search for a PID we need to specify the *-p* flag followed by the PID (`ps -p <PROCESS ID>`). You should get an output looking like that:
 
-![Process](https://i.imgur.com/UsrVy10.png)
+![Process](https://i.imgur.com/xCK81TJ.png)
 
 We have now located the server. Let's take a look at it:
 ```javascript
