@@ -154,9 +154,9 @@ const express = require('express')
 const app = express()
 const { exec } = require('child_process')
 app.get('/', (req, res) => {
-    res.send("Patched by Noxtal! Website: noxtal.com, @noxtal_ on Twitter. I would be glad to talk. :)")
+    res.send("Patched by Noxtal! @noxtal_ on Twitter, I would be glad to talk. :) Website: noxtal.com.")
 })
-app.listen(3000, () => console.log('App listening on port 3000)
+app.listen(3000, () => console.log('App listening on port 3000'))
 ```
 
 Once you are done we need to update the server with the current version of the server. In order to do that, kill the previously found process id (using, for instance `kill -9 <PROCESS ID>`). Then, as soon as possible, put the server back up using the node command: `node server.js`. Your patching job is now done! 
