@@ -63,7 +63,7 @@ There is a classical SSH open port along with Telnet, but the most interesting p
 Port 80 is really just a simple blog. Using the directory found in the *gobuster* scan, we can seek the entire website. By taking an overall look at it, I have found no potential vulnerabilities there.
 
 <p align="center">
-  <img width=170 src="https://i.imgur.com/0EGKrZX.png">
+  <img src="https://i.imgur.com/RP3ZfXk.png">
 </p>
 
 Let's instead head up to port 3000. As soon as we arrive, we can find a very interesting message telling us the *cmd* argument is missing... Are we facing a command injection? Let's take a closer look at this.
