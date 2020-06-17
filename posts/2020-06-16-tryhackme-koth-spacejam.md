@@ -1,13 +1,13 @@
 ---
 layout: post
 title: TryHackMe King of the Hill - Spacejam
-excerpt: An overall look at the Spacejam box from TryHackMe's King of the Hill mode. Includes attack, flag locations, king tricks and patching.
+excerpt:  A detailled look at the Spacejam box from TryHackMe's King of the Hill mode. Includes attack, flag locations, king tricks and patching.
 date: 2020-06-16
 tags: TryHackMe, KOTH, Injection
 author: Noxtal
 ---
 
- An overall look at the Spacejam box from TryHackMe's King of the Hill mode. Includes attack, flag locations, king tricks and patching.
+ A detailled look at the Spacejam box from TryHackMe's King of the Hill mode. Includes attack, flag locations, king tricks and patching.
 
 -----
 
@@ -146,7 +146,7 @@ This program is a Node.js Express server. If you are not familiar with Javascrip
 
 Now let's patch. We need to remove everything related to the command injection. It is important to let the server run correctly as, for the game to stay fair and fun, we need to use as few superman defences as possible (we should use them only if there is not any other solution possible). This is mentioned in TryHackMe KOTH rules.
 
-You can add barely any feature to server.js as you want as long as you don't use it to attack other players, which is strictly illegal, and unfair. Use that server to troll and teasing other players if you want, or even to do a shoutout to yourself, as I did. Those are all legal things to do which makes the game a lot more fun.
+You can add barely any feature to server.js as you want as long as you don't use it to attack other players, which is strictly illegal, and unfair. Use that server to troll and tease other players if you want, or even to do a shoutout to yourself, as I did. Those are all legal things to do which makes the game a lot more fun.
 
 My version:
 ```javascript
