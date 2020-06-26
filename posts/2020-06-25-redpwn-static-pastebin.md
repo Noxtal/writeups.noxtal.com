@@ -15,7 +15,7 @@ author: Noxtal
 -----
 
 # Description
-Web, 373 points
+Web, 373 points</br>
 Challenge author: BrownieInMotion
 
 > I wanted to make a website to store bits of text, but I don't have any experience with web development. However, I realized that I don't need any! If you experience any issues, make a paste and send it [here]("https://admin-bot.redpwnc.tf/submit?challenge=static-pastebin")
