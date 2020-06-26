@@ -1,7 +1,7 @@
 ---
 layout: post
 title: redpwnCTF 2020 - static-pastebin
-excerpt: An in-depth look at static-pastebin from redpwnCTF 2020. (INSERT LONGER EXCERPT)
+excerpt: An in-depth look at static-pastebin from redpwnCTF 2020. Huge thanks to redpwn for this awesome event!
 date: 2020-06-25
 tags: redpwnCTF 2020, Web, JavaScript, Cookie Stealing, XSS, RequestBin
 author: Noxtal
@@ -15,8 +15,9 @@ author: Noxtal
 -----
 
 # Description
-Web, 125 points 
-<!-- TODO change point amount -->
+Web, 373 points
+Challenge author: BrownieInMotion
+
 > I wanted to make a website to store bits of text, but I don't have any experience with web development. However, I realized that I don't need any! If you experience any issues, make a paste and send it [here]("https://admin-bot.redpwnc.tf/submit?challenge=static-pastebin")
 
 *Note: if this challenge is not disponible at the time you read this writeup, I've made a similar challenge hosted on my domain. You can find it [here](https://challenges.noxtal.com/redbook).*
@@ -27,7 +28,7 @@ When we open the challenge's website, we can see a pastebin-like website on whic
 We have only got a text input and a button that allows us to reflect what we have typed on another page. This is a perfect playground for XSS. If you don't know XSS yet, I really suggest you learn more about it, as it is a really common attack in real-life scenarios. You can learn more about it on my [learning platform](https://learn.noxtal.com).
 
 Let's test this idea by trying to inject an h1 tag in the *paste*.
-<!-- (INSERT IMAGE) -->
+![h1 test](https://i.imgur.com/bIM7b3n.png)
 
 Weirdly, it seems like the h1 tag wasn't reflected on the *paste*. That doesn't mean XSS is not possible, it only means that there may be a sanitizer implemented that we need to bypass. By looking at the source provided in Chrome's Developer Tools, we can find a JavaScript file named *script.js*.
 
@@ -83,9 +84,9 @@ RequestBin is a web application allowing you to create a special URL that logs e
 ```
 
 We finally need to put the payload in the paste and give the corresponding URL to the admin bot and we are done! The flag can be found as expected in the admin cookies.
-(INSERT IMAGE)
+![flag](https://i.imgur.com/JTGRrrh.png)
 
-That's all we got to do to solve this challenge. RedpwnCTF was really fun, even if the challenges were harder than other CTFs I played. Huge thanks to **redpwn** for this awesome event.
+That's all we got to do to solve this challenge. RedpwnCTF was really fun, even if the challenges were harder than other CTFs I played. I enjoyed doing the web challenges. Huge thanks to **redpwn** for this awesome event. 
 
 If this challenge is not disponible at the time you read this writeup, I've made a similar challenge hosted on my domain. You can find it [here](https://challenges.noxtal.com/redbook).
 
