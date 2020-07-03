@@ -28,6 +28,7 @@ When we open the challenge's website, we can see a pastebin-like website on whic
 We have only got a text input and a button that allows us to reflect what we have typed on another page. This is a perfect playground for XSS. If you don't know XSS yet, I really suggest you learn more about it, as it is a really common attack in real-life scenarios. You can learn more about it on my [learning platform](https://learn.noxtal.com).
 
 Let's test this idea by trying to inject an h1 tag in the *paste*.
+
 ![h1 test](https://i.imgur.com/bIM7b3n.png)
 
 Weirdly, it seems like the h1 tag wasn't reflected on the *paste*. That doesn't mean XSS is not possible, it only means that there may be a sanitizer implemented that we need to bypass. By looking at the source provided in Chrome's Developer Tools, we can find a JavaScript file named *script.js*.
