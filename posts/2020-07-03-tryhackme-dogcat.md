@@ -43,7 +43,8 @@ We need to reverse-engineer the code to understand the real meaning of that erro
 
 This still doesn't work... I then assumed there is a kind of filter to check is the word dog or cat is included in the *view* parameter. That means we could try changing it to `php://filter/convert.base64-encode/cat/resource=index`.
 
-This has worked! We have now got the base64 encoded version of the source code. Let's decode it using Cyberchef. Below is the PHP code, hence the most interesting part
+This has worked! We have now got the base64 encoded version of the source code. Let's decode it using Cyberchef. Below is the PHP code, hence the most interesting part.
+
 ```php
 <?php
 function containsStr($str, $substr) {
@@ -97,6 +98,7 @@ This program uses the [requests](https://requests.readthedocs.io/en/master/) lib
 ```php
 <?php system((isset($_GET['c']))?$_GET['c']:'echo'); ?>
 ```
+
 This is a classical command injection payload. Once the logs will be poisoned, if we set the *c* variable, it will execute its value in the terminal.
 
 *Note: if you want to reuse this program for another box and want to change the payload, be sure it contains no error. A good way to test for this is to test it locally. If you enter an incorrect payload, you will in a way "corrupt" the logs from your side and it will be difficult to inject a correct payload.*
