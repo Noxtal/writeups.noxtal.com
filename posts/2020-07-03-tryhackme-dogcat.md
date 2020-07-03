@@ -64,7 +64,7 @@ if(isset($_GET['view'])) {
 
 We can see above that the only filters in place are, as I assumed, looking for the word *dog* and *cat* in the query string. That is not much of a problem because, fortunately for us, there is a command named cat in UNIX. This means that we can use `/etc/cat` or any directory related to the *cat* command to bypass the filter. Then, we only need to use `../` to get out of the directory and retrieve every file this user has access to.
 
-We have now got a successful LFI exploit. With that, I thought of two main attacks we could try. The first one is about stealing the SSH private keys from the home directory. The second one involves poisoning the Apache2 logs to inject our own PHP code into the page. I went for the second one because it seemed the most interesting.
+We have now got a successful LFI exploit. With that, I thought of two main attacks we could try. The first one is about stealing the SSH private keys from the home directories. The second one involves poisoning the Apache2 logs to inject our own PHP code into the page. I went for the second one because it seemed the most interesting.
 
 ## Log Poisoning: LFI to RCE
 To get a shell, we are going to need to use Apache2 logs for log poisoning. This technique consists of sending a request containing some PHP or JavaScript code. Then, when looking at the requests logs of Apache through a vulnerability like LFI, this code is going to be rendered on the page.
@@ -73,7 +73,7 @@ In our case, we can access the Apache2 logs using this string after the URL: `?v
 
 ![Apache2 Logs](https://i.imgur.com/FkIXax0.png)
 
-By looking at the logs, we can find that the URL part is URL encoded. This means we cant inject our code there because it won't be properly displayed. There is one major field though that is not encoded: the user-agent. Let's write a short Python script to inject our payload in the user-agent. Writing Python scripts to solve pentesting problems is always useful. It will make you learn more and give you the ability to easily create tools you can use for other pentests. This is the code I came up with, let's take a look at it.
+By looking at the logs, we can find that the URL part is URL encoded. This means we cant inject our code there because it won't be properly reflected. There is one major field though that is not encoded: the user-agent. Let's write a short Python script to inject our payload in it. Writing Python scripts to solve pentesting problems is always useful. It will make you learn more and give you the ability to easily create tools you can use for other pentests. This is the code I came up with, let's take a look at it.
 
 ```python
 #!/usr/bin/python3.8
@@ -122,18 +122,24 @@ To figure out a privesc, the fastest way is to use the `sudo -l` command. This c
 
 Fortunately for us, this command returned good results. The last line says our current user can run `env` as root without the need of a password. Using [GTFOBins](https://gtfobins.github.io/), in the sudo category of the `env` command, we can find the right command to escalate our privileges to **root**.
 
-![env privesc](https://i.imgur.com/F1sFjzU.png)
+<p align="center">
+  <img src="https://i.imgur.com/F1sFjzU.png" width=360>
+</p>
 
 We are now **root**! If we now go in the `/root` directory, we can find the third flag. The only problem is, we miss one flag... where could it be?
 
 After a bit of research, we can find a good hint that we are currently stuck inside a Docker container: the hostname (which can be found using the `hostname` command) is not the name of the box as usual. We need to get out of this container to get the 4th flag.
 
-![Hostname before](https://i.imgur.com/PKLSGWl.png)
+<p align="center">
+  <img src="https://i.imgur.com/PKLSGWl.png" width=280>
+</p>
 
 ## Escaping the Container
 We now need to find something that could help us get out of our container. I first searched for common directories until I stumbled in `/opt`. In that directory, we can find a folder named `backups`. In it, there are two files: a *backup.tar* file and a *backup.sh* script which runs about every minute to pack a backup into backup.tar. 
 
-![Backup folder](https://i.imgur.com/0fsSNV0.png)
+<p align="center">
+  <img src="https://i.imgur.com/0fsSNV0.png">
+</p>
 
 The problem is that we can edit that file, which makes it vulnerable. If we edit it to insert a reverse shell, we could get access to the machine behind the container, in other words, escaping the container. Let's create a netcat listener using `nc -lvnp 1234` (or any other port). Then, let's replace the *backup.sh* script with a reverse shell as shown below.
 
